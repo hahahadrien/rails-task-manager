@@ -1,0 +1,39 @@
+<h1>My Tasks 📝</h1>
+
+<% @tasks.each do |task| %>
+  <% if task.completed? %>
+    <label><h3><%= link_to task.title, task_path(task) %></h3></label>
+    <%= link_to "✏️", edit_task_path(task) %>
+    <p></p>
+    <%= link_to "🗑",
+            task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    <p></p>
+    <div>
+      <input type="checkbox" checked>
+    </div>
+  <% else %>
+    <label><h3><%= link_to task.title, task_path(task) %></h3></label>
+    <%= link_to "✏️", edit_task_path(task) %>
+    <p></p>
+    <%= link_to "🗑",
+            task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    <p></p>
+    <div>
+      <input type="checkbox">
+    </div>
+  <% end %>
+<% end %>
+
+<p></p>
+<%# link_to ce que je veux afficher à l'écran, vers quoi je veux que ça m'ammène quand je vais dessus (rails routes)%>
+<%= link_to "+ add a new article", tasks_new_path %>
+
+
+
+
+
+
